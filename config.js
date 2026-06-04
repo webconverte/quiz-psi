@@ -85,12 +85,12 @@ window.PSICO_CONFIG = {
       description: "Emoções intensas, dificuldade de se acalmar e reações que você lamenta.",
       path: "/quiz/regulacao/"
     },
-    /{
+    {
       id: "impostor",
       title: "Síndrome do Impostor",
       icon: "🎭",
       description: "Medo de ser desmascarado, atribuir conquistas à sorte e não se sentir suficiente.",
       path: "/quiz/impostor/"
-    }/
+    }
   ]
 };
