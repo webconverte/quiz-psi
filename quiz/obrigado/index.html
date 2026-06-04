@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Obrigado — Espaço de Escuta</title>
+  <meta name="description" content="Recebemos seu contato. A psicóloga responderá em breve." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <script src="/config.js"></script>
+  <script src="/assets/gtm.js"></script>
+</head>
+<body>
+
+
+  <main>
+    <div class="panel thanks">
+      <div class="check">✓</div>
+      <h1>Obrigado pelo seu contato!</h1>
+      <p style="margin-top:1rem;font-size:1.05rem;">Recebemos suas informações. A psicóloga retornará em breve para combinar a triagem inicial gratuita.</p>
+      <p style="font-size:0.9rem;color:var(--muted);">Enquanto isso, lembre-se: pedir ajuda é um passo importante de cuidado consigo mesmo.</p>
+      <div style="margin-top:1.5rem;">
+        <a href="/" class="btn btn-primary">Voltar ao início</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">Ferramenta educativa · Não substitui avaliação clínica</footer>
+
+  <script>
+    (function () {
+      // Lê o tema do parâmetro de URL (?tema=ansiedade)
+      var tema = new URLSearchParams(window.location.search).get('tema') || 'desconhecido';
+
+      // Dispara evento no dataLayer para o GTM capturar e enviar ao GA4
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'quiz_obrigado',
+        quiz_tema: tema
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quizzes de Autopercepção em Saúde Mental</title>
+  <meta name="description" content="Quizzes gratuitos de autopercepção sobre ansiedade, depressão e luto. Reflita sobre seus sintomas e fale com uma psicóloga." />
+  <link rel="icon" href="/favicon adalia.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <script src="/config.js"></script>
+  <script src="/assets/gtm.js"></script>
+</head>
+<body>
+
+
+  <main>
+    <section class="hero">
+      <span class="eyebrow">Autopercepção em saúde mental</span>
+      <h1>Como você tem se sentido?</h1>
+      <p class="lead">Escolha um tema e responda a 5 perguntas rápidas. Ao final, você recebe uma reflexão sobre seus sintomas e pode falar diretamente com uma psicóloga para uma triagem inicial <strong>gratuita</strong>.</p>
+    </section>
+
+    <section class="themes" id="themes-container" aria-label="Temas disponíveis">
+      <!-- Cards gerados dinamicamente pelo script abaixo baseado no config.js -->
+    </section>
+
+    <section style="margin-top:3rem;text-align:center;color:var(--muted);font-size:0.9rem;max-width:600px;margin-left:auto;margin-right:auto;">
+      Esta ferramenta é educativa e não substitui uma consulta clínica. Não realiza diagnóstico psicológico automatizado.
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © <span id="y"></span> Espaço de Escuta · Todos os direitos reservados
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('themes-container');
+      const themes = window.PSICO_CONFIG?.THEMES || [];
+      
+      themes.forEach(theme => {
+        const a = document.createElement('a');
+        a.href = theme.path;
+        a.className = `theme-card ${theme.id}`;
+        a.innerHTML = `
+          <div class="theme-icon">${theme.icon}</div>
+          <h3>${theme.title}</h3>
+          <p>${theme.description}</p>
+          <span class="cta">Iniciar autopercepção →</span>
+        `;
+        container.appendChild(a);
+      });
+    });
+  </script>
+</body>
+</html>
